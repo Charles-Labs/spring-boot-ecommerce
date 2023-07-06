@@ -8,4 +8,8 @@ import lombok.Data;
 @Table(name="product")
 @Data
 public class Product {
+    private Long id;
+    private String sku;
+    private String description;
+    private String unitPrice;
 }
