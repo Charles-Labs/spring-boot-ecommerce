@@ -20,6 +20,8 @@ public class Product {
 
     @Column( name = "description")
     private String description;
+
+    @Column( name = "unit_price")
     private BigDecimal unitPrice;
     private String imageUrl;
     private boolean active;
