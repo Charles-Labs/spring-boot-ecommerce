@@ -14,6 +14,8 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column( name = "id")
     private Long id;
+
+    @Column( name = "sku")
     private String sku;
     private String description;
     private BigDecimal unitPrice;
