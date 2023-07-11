@@ -23,6 +23,8 @@ public class Product {
 
     @Column( name = "unit_price")
     private BigDecimal unitPrice;
+
+    @Column( name = "image_rl")
     private String imageUrl;
     private boolean active;
     private int unitsInStock;
