@@ -26,6 +26,8 @@ public class Product {
 
     @Column( name = "image_rl")
     private String imageUrl;
+
+    @Column( name = "active")
     private boolean active;
     private int unitsInStock;
     private Date dateCreated;
