@@ -29,7 +29,12 @@ public class Product {
 
     @Column( name = "active")
     private boolean active;
+
+    @Column( name = "units_in_stock")
     private int unitsInStock;
+
+    @Column( name = "date_created")
     private Date dateCreated;
+
     private Date lastUpdated;
 }
