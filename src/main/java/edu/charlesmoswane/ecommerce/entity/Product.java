@@ -36,5 +36,6 @@ public class Product {
     @Column( name = "date_created")
     private Date dateCreated;
 
+    @Column( name = "last_updated")
     private Date lastUpdated;
 }
