@@ -1,8 +1,6 @@
 package edu.charlesmoswane.ecommerce.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +17,6 @@ public class ProductCategory {
     @Column(name = "category_name")
     private String categoryName;
 
-    @Column(name = "product")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "product")
     private Set<Product> products;
 }
