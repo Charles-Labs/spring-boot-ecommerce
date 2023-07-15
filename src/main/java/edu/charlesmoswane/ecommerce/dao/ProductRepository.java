@@ -1,4 +1,7 @@
 package edu.charlesmoswane.ecommerce.dao;
 
-public interface ProductRepository {
+import edu.charlesmoswane.ecommerce.entity.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProductRepository extends JpaRepository<Product, Long> {
 }
