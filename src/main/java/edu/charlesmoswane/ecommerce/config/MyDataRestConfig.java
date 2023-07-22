@@ -1,4 +1,6 @@
 package edu.charlesmoswane.ecommerce.config;
 
-public class MyDataRestConfig {
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+
+public class MyDataRestConfig implements RepositoryRestConfiguration {
 }
