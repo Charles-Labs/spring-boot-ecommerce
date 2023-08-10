@@ -2,6 +2,8 @@ package edu.charlesmoswane.ecommerce.config;
 
 import edu.charlesmoswane.ecommerce.entity.Product;
 import edu.charlesmoswane.ecommerce.entity.ProductCategory;
+import jakarta.persistence.EntityManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -10,6 +12,13 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 @Configuration
 public class MyDataRestConfig implements RepositoryRestConfigurer {
+    private EntityManager entityManager;
+
+    @Autowired
+    public MyDataRestConfig(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
         RepositoryRestConfigurer.super.configureRepositoryRestConfiguration(config, cors);
@@ -25,5 +34,10 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
                 .forDomainType(ProductCategory.class)
                 .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
                 .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
+
+        exposeIds(config);
+    }
+
+    private void exposeIds(RepositoryRestConfiguration config) {
     }
 }
