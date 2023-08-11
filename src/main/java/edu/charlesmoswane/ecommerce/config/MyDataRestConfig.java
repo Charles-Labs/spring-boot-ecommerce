@@ -11,6 +11,8 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Configuration
@@ -42,9 +44,12 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
     }
 
     private void exposeIds(RepositoryRestConfiguration config) {
-//        expose entityt ids
+//        expose entity ids
 
 //        get a list of all entity classes from the entity manager
         Set<EntityType<?>> entities = entityManager.getMetamodel().getEntities();
+
+//        Create an array of the empty types
+        List<Class> entityClasses = new ArrayList<>();
     }
 }
