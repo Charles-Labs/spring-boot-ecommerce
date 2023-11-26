@@ -11,12 +11,12 @@ import lombok.Setter;
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "code", nullable = false)
+    @Column(name = "code")
     private String code;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String name;
 }
