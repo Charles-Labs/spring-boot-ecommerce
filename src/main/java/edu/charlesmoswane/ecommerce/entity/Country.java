@@ -14,4 +14,9 @@ public class Country {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(name = "code", nullable = false)
+    private String code;
+
+    @Column(name = "name", nullable = false)
+    private String name;
 }
