@@ -19,4 +19,9 @@ public class Country {
 
     @Column(name = "name")
     private String name;
+
+
+//    TODO: Add one-to-many mapping to states
+
+
 }
