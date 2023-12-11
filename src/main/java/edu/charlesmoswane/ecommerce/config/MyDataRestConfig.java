@@ -7,7 +7,6 @@ import jakarta.persistence.metamodel.EntityType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-import org.springframework.data.rest.core.mapping.ExposureConfigurer;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -33,17 +32,17 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
 //        disable HTTP methods for Product: PUT, POST, DELETE
         disableHttpMethods(config.getExposureConfiguration()
-                .forDomainType(Product.class), theUnsupportedActions);
+                .forDomainType(Product.class), theUnsupportedActions, ProductCategory.class);
 
 //        disable HTTP methods for ProductCategory: PUT, POST, DELETE
-        disableHttpMethods(config.getExposureConfiguration()
-                .forDomainType(ProductCategory.class), theUnsupportedActions);
+        disableHttpMethods(ProductCategory.class, config, theUnsupportedActions);
 
         exposeIds(config);
     }
 
-    private static void disableHttpMethods(ExposureConfigurer config, HttpMethod[] theUnsupportedActions) {
-        config
+    private static void disableHttpMethods(Class theClass, RepositoryRestConfiguration config, HttpMethod[] theUnsupportedActions) {
+        config.getExposureConfiguration()
+                .forDomainType(theClass)
                 .withItemExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions))
                 .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
     }
