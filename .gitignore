@@ -6,7 +6,8 @@ target/
 
 ### CREDENTIALS ###
 env.properties
-/appengine/
+**/appengine/
+**/appengine/app.yaml
 
 ### STS ###
 .apt_generated
